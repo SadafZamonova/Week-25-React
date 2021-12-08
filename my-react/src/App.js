@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import { Pie } from 'react-chartjs-2';
 
 function App() {
+
+  const chartdata = {
+    labels: ["Newly Added", "Edited", "Deleted"],
+    datasets: [
+      {
+        label: "Markets Monitored",
+        backgroundColor: [
+          "#83ce83",
+          "#959595",
+          "#f96a5d",
+          "#00A6B4",
+          "#6800B4",
+        ],
+        data: [9, 5, 3],
+      },
+    ],
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <Pie
+  options={{
+    legend: { display: true, position: "right" },
+
+    datalabels: {
+      display: true,
+      color: "white",
+    },
+    tooltips: {
+      backgroundColor: "#5a6e7f",
+    },
+  }}
+  data={chartdata}
+  
+/>
     </div>
   );
 }
