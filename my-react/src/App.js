@@ -1,5 +1,7 @@
 import './App.css';
 import { Pie } from 'react-chartjs-2';
+import {Chart, ArcElement} from 'chart.js'
+Chart.register(ArcElement);
 
 function App() {
 
@@ -16,8 +18,10 @@ function App() {
           "#6800B4",
         ],
         data: [9, 5, 3],
+       
       },
     ],
+   
   };
 
   return (
@@ -35,7 +39,8 @@ function App() {
     },
   }}
   data={chartdata}
-  
+  height={20}
+  width={30}
 />
     </div>
   );
